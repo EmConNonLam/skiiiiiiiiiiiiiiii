@@ -1,3 +1,27 @@
+--// Key System
+local validKey = "skibidi-123"
+local inputKey
+
+if not isfile or not isfile("skibidi.key") then
+    repeat
+        rconsoleprint("Nhập key để tiếp tục: ")
+        inputKey = readfile and readfile("skibidi.key") or nil
+        if not inputKey then
+            inputKey = tostring(rconsoleinput())
+        end
+        if inputKey ~= validKey then
+            rconsoleprint("❌ Sai key. Hãy thử lại hoặc lấy key từ Discord!\n")
+        end
+    until inputKey == validKey
+end
+
+-- Bạn có thể lưu key nếu muốn:
+if writefile then
+    writefile("skibidi.key", inputKey)
+end
+
+print("✅ Key đúng! Đang tải script...")
+
 if IY_LOADED and not _G.IY_DEBUG == true then
     -- error("Xuan Dung is already running!", 0)
     return
